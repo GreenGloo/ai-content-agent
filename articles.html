@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Articles - TrendCatcher</title>
+    <meta name="description" content="Browse all trending tech articles on TrendCatcher. Latest insights on AI, development tools, open source projects, and emerging technologies.">
+    <meta name="keywords" content="tech articles, AI trends, developer tools, open source, technology news">
+    
+    <!-- Modern CSS Framework -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ad Network Ready -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4418865924195738" crossorigin="anonymous"></script>
+    
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+            --dark-color: #2d3748;
+            --light-gray: #f7fafc;
+            --border-color: #e2e8f0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background: var(--light-gray);
+        }
+        
+        .navbar {
+            background: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            height: 100%;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .article-header {
+            background: linear-gradient(45deg, var(--light-gray), white);
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .article-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            text-decoration: none;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        .article-title:hover {
+            color: var(--primary-color);
+        }
+        
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        .article-body {
+            padding: 1.5rem;
+        }
+        
+        .article-excerpt {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        .filter-bar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+        
+        .ad-container {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            border: 2px dashed var(--border-color);
+        }
+        
+        .back-to-home {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-to-home:hover {
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-search"></i> TrendCatcher
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link back-to-home" href="index.html">
+                    <i class="bi bi-house"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1><i class="bi bi-collection"></i> All Articles</h1>
+                    <p class="lead">Explore our complete collection of trending tech insights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h5 class="mb-0">📚 Latest Tech Articles</h5>
+                    <small class="text-muted">Fresh insights updated daily</small>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <span class="badge bg-primary">15+ Articles</span>
+                    <span class="badge bg-success ms-2">Updated Daily</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Space -->
+        <div class="ad-container">
+            <h6 class="text-muted mb-3">Sponsored Content</h6>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4418865924195738" data-ad-slot="1234567890" data-ad-format="auto"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Articles Grid -->
+        <div class="row">
+            <!-- Featured Articles -->
+            <div class="col-lg-8 mb-4">
+                <article class="article-card">
+                    <div class="article-header">
+                        <h2>
+                            <a href="posts/2025-06-19-ragflow-ultimate-visual-guide.html" class="article-title">
+                                RAGFlow: The Ultimate Visual Guide to AI's Document Revolution
+                            </a>
+                        </h2>
+                        <div class="article-meta">
+                            <span><i class="bi bi-clock"></i> 12 min read</span>
+                            <span><i class="bi bi-star-fill text-warning"></i> Featured</span>
+                            <span><i class="bi bi-calendar3"></i> June 19, 2025</span>
+                        </div>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-excerpt">
+                            Interactive guide to RAGFlow - the AI breakthrough with 56K+ GitHub stars. Complete with visual charts, 
+                            animated demos, and comprehensive analysis of this revolutionary document AI tool.
+                        </p>
+                        <div class="article-tags">
+                            <span class="tag">AI</span>
+                            <span class="tag">RAG</span>
+                            <span class="tag">Visual Guide</span>
+                            <span class="tag">Featured</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Newsletter Signup -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body text-center p-4">
+                        <h5><i class="bi bi-envelope-heart"></i> Stay Updated</h5>
+                        <p class="text-muted small">Get AI insights delivered to your inbox</p>
+                        <form>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="your@email.com">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                Subscribe Free
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Ad Space -->
+                <div class="ad-container">
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4418865924195738" data-ad-slot="9876543210" data-ad-format="auto"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Articles Grid -->
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4">
+                <article class="article-card">
+                    <div class="article-header">
+                        <h3>
+                            <a href="posts/2025-06-19-nvmsh-nvm-node-version-manager-posixcompliant-bash.html" class="article-title">
+                                Node Version Manager: Complete Developer Guide
+                            </a>
+                        </h3>
+                        <div class="article-meta">
+                            <span><i class="bi bi-clock"></i> 8 min</span>
+                            <span><i class="bi bi-code-slash text-success"></i> Dev Tools</span>
+                        </div>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-excerpt">
+                            Master Node.js version management with nvm. Essential tool for developers working with multiple projects.
+                        </p>
+                        <div class="article-tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Developer Tools</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <article class="article-card">
+                    <div class="article-header">
+                        <h3>
+                            <a href="posts/2025-06-19-menloresearch-jan-jan-is-an-open-source-alternativ.html" class="article-title">
+                                Jan: Offline ChatGPT Alternative
+                            </a>
+                        </h3>
+                        <div class="article-meta">
+                            <span><i class="bi bi-clock"></i> 7 min</span>
+                            <span><i class="bi bi-shield-check text-primary"></i> Privacy</span>
+                        </div>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-excerpt">
+                            Discover Jan, the open-source AI chatbot that runs 100% offline. Perfect for privacy-conscious users.
+                        </p>
+                        <div class="article-tags">
+                            <span class="tag">AI</span>
+                            <span class="tag">Privacy</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <article class="article-card">
+                    <div class="article-header">
+                        <h3>
+                            <a href="posts/2025-06-19-dataexpertio-dataengineerhandbook-this-is-a-repo-w.html" class="article-title">
+                                Data Engineering Handbook: Complete Learning Guide
+                            </a>
+                        </h3>
+                        <div class="article-meta">
+                            <span><i class="bi bi-clock"></i> 9 min</span>
+                            <span><i class="bi bi-database text-info"></i> Data</span>
+                        </div>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-excerpt">
+                            Comprehensive resource for mastering data engineering. From fundamentals to advanced practices.
+                        </p>
+                        <div class="article-tags">
+                            <span class="tag">Data Engineering</span>
+                            <span class="tag">Learning</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Load More Section -->
+        <div class="text-center mt-5">
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle"></i> More articles are generated automatically every few hours. 
+                Check back soon for fresh trending content!
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="bi bi-search"></i> TrendCatcher</h5>
+                    <p class="text-muted">Catch trends before they happen. Powered by AI and updated every 4 hours.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-muted small">© 2025 TrendCatcher. All rights reserved. | <a href="privacy.html" class="text-light">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>
