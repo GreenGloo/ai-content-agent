@@ -6,7 +6,7 @@ import fs from 'fs';
 // Profitable affiliate programs for tech content
 const AFFILIATE_PROGRAMS = {
     amazon: {
-        tag: 'your-amazon-tag-20', // Replace with your Amazon Associates tag
+        tag: 'trendcatcher9-20', // Your Amazon Associates tag
         baseUrl: 'https://amzn.to/', // Amazon shortened links
         commission: '4-10%'
     },
