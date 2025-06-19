@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://greengloo.github.io/ai-content-agent/</loc>
+    <lastmod>2025-06-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Articles -->
+  <url>
+    <loc>https://greengloo.github.io/ai-content-agent/posts/2025-06-19-ragflow-ultimate-visual-guide.html</loc>
+    <lastmod>2025-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>AI Trend Hub</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-06-19</news:publication_date>
+      <news:title>RAGFlow: The Ultimate Visual Guide to AI's Document Revolution</news:title>
+      <news:keywords>RAGFlow, AI, document understanding, GitHub trending</news:keywords>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://greengloo.github.io/ai-content-agent/posts/2025-06-19-spacex-rocket-explodes-in-starbase-texas.html</loc>
+    <lastmod>2025-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>AI Trend Hub</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-06-19</news:publication_date>
+      <news:title>SpaceX Rocket Explodes at Starbase: What This Means for Space Exploration</news:title>
+      <news:keywords>SpaceX, rocket explosion, Starbase, space exploration</news:keywords>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://greengloo.github.io/ai-content-agent/posts/2025-06-19-ragflow-revolutionizing-ai-document-understanding.html</loc>
+    <lastmod>2025-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://greengloo.github.io/ai-content-agent/posts/2025-06-19-nocodb-nocodb-open-source-airtable-alternative.html</loc>
+    <lastmod>2025-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://greengloo.github.io/ai-content-agent/posts/2025-06-19-a-world-war-ii-fighter-pilot-finally-found-his-fal.html</loc>
+    <lastmod>2025-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://greengloo.github.io/ai-content-agent/posts/2025-06-19-made-this-end-table.html</loc>
+    <lastmod>2025-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
