@@ -8,7 +8,9 @@
     "dev": "node --watch src/main.js",
     "test": "node src/test.js",
     "generate": "node auto-publish.js",
-    "publish": "node generate-content.js"
+    "publish": "node generate-content.js",
+    "pro": "node generate-professional-content.js",
+    "professional": "node generate-professional-content.js"
   },
   "keywords": ["ai", "content", "automation", "trending"],
   "author": "",
