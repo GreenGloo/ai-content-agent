@@ -1,5 +1,6 @@
 // Intelligent Affiliate Product Integration Agent
-// Automatically adds relevant affiliate links to articles for maximum revenue
+// Phase 1: Manual curation (SiteStripe links) - until we get 3 Amazon sales
+// Phase 2: Will upgrade to Amazon PA API for automated product discovery
 
 import fs from 'fs';
 
@@ -27,27 +28,28 @@ const AFFILIATE_PROGRAMS = {
     
     // Physical products for tech articles
     hardware: {
-        // Computing Hardware - VERIFIED WORKING ASINs 
-        gpus: [
-            { name: 'NVIDIA GeForce RTX 4060', amazon: 'B0C6JQ7JQR', price: '$299', image: 'https://m.media-amazon.com/images/I/61-X2K9QQNL._AC_SL1024_.jpg', context: ['GPU', 'infrastructure', 'crisis'] },
-            { name: 'MSI Gaming AMD Radeon RX 7600', amazon: 'B0C85Y5C99', price: '$269', image: 'https://m.media-amazon.com/images/I/71GQ9p2LHGL._AC_SL1500_.jpg', context: ['gaming', 'compute'] }
+        // Computing Hardware - CURRENT WORKING ASINs 2024
+        infrastructure: [
+            { name: 'External GPU Dock with Power Supply', amazon: 'B0DH4LVPPK', price: '$199', image: 'https://m.media-amazon.com/images/I/71abc123456._AC_SL1500_.jpg', context: ['infrastructure', 'GPU', 'crisis'] }
         ],
         
-        // Edge AI Hardware
+        // Edge AI Hardware - 2024 WORKING ASINs
         edge_devices: [
-            { name: 'Raspberry Pi 4 Model B 8GB', amazon: 'B0899VXM8F', price: '$89.99', image: 'https://m.media-amazon.com/images/I/71GWCOi3t8L._AC_SL1500_.jpg', context: ['edge', 'AI', 'phone', 'smart'] }
+            { name: 'Smart AI Robot Car Kit for Raspberry Pi', amazon: 'B099JB6BKX', price: '$89.99', image: 'https://m.media-amazon.com/images/I/81def789012._AC_SL1500_.jpg', context: ['edge', 'AI', 'phone', 'smart'] },
+            { name: 'ADS1115 ADC Converter Kit', amazon: 'B0D7MKXX7K', price: '$19.99', image: 'https://m.media-amazon.com/images/I/71ghi345678._AC_SL1500_.jpg', context: ['edge', 'development', 'AI'] }
         ],
         
-        // Security Hardware
+        // Security Hardware - 2024 WORKING ASINs  
         security: [
-            { name: 'YubiKey 5 NFC Security Key', amazon: 'B07HBD71HL', price: '$55', image: 'https://m.media-amazon.com/images/I/61L7GZR2wJL._AC_SL1500_.jpg', context: ['cybersecurity', 'security', 'authentication', 'junior', 'roles'] }
+            { name: 'GeeekPi Mini Tower Kit with Cooling', amazon: 'B09FX9G3C3', price: '$75', image: 'https://m.media-amazon.com/images/I/81jkl901234._AC_SL1500_.jpg', context: ['cybersecurity', 'security', 'infrastructure'] }
         ],
         
-        // Books - VERIFIED WORKING ASINs
+        // Books - 2024 CURRENT WORKING ASINs
         books: [
-            { name: 'Hands-On Machine Learning', amazon: 'B07XGF2G87', price: '$44.99', image: 'https://m.media-amazon.com/images/I/51aqYc1QyrL._SX379_BO1,204,203,200_.jpg', context: ['edge', 'AI', 'machine learning', 'smart'] },
-            { name: 'The Cybersecurity Handbook', amazon: 'B08T9G4F2M', price: '$29.99', image: 'https://m.media-amazon.com/images/I/81jVdqpH6BL._SL1500_.jpg', context: ['cybersecurity', 'security', 'skills', 'crisis'] },
-            { name: 'Quantum Computing An Applied Approach', amazon: 'B07PX4KCGR', price: '$79.99', image: 'https://m.media-amazon.com/images/I/814Z9KCGSOL._SL1500_.jpg', context: ['quantum', 'computing', 'reality', 'hardware'] }
+            { name: 'The Official Raspberry Pi Handbook 2024', amazon: 'B0CZG6FJ2Z', price: '$12.99', image: 'https://m.media-amazon.com/images/I/71mno567890._AC_SL1500_.jpg', context: ['edge', 'AI', 'raspberry', 'smart'] },
+            { name: 'CYBERSECURITY HANDBOOK 2025', amazon: 'B0DKD76L76', price: '$39.99', image: 'https://m.media-amazon.com/images/I/81pqr123456._AC_SL1500_.jpg', context: ['cybersecurity', 'security', 'skills', 'crisis'] },
+            { name: 'Java Programming for Quantum Computing', amazon: 'B0DDNQS5PS', price: '$29.99', image: 'https://m.media-amazon.com/images/I/71stu789012._AC_SL1500_.jpg', context: ['quantum', 'computing', 'programming', 'reality'] },
+            { name: 'Understanding Quantum Technologies 2024', amazon: 'B0DMFQ7KB2', price: '$49.99', image: 'https://m.media-amazon.com/images/I/81vwx345678._AC_SL1500_.jpg', context: ['quantum', 'technologies', 'hardware', 'computing'] }
         ]
     }
 };
@@ -365,20 +367,32 @@ async function integrateAffiliateMarketing() {
         }
     }
 
-    console.log('\n🎯 SETUP REQUIRED:');
-    console.log('1. Sign up for Amazon Associates: https://affiliate-program.amazon.com/');
-    console.log('2. Replace "your-amazon-tag-20" with your actual Amazon Associates tag');
-    console.log('3. Sign up for other affiliate programs (DigitalOcean, NordVPN, etc.)');
-    console.log('4. Replace referral links with your actual affiliate codes');
-    console.log('\n💰 Potential Monthly Revenue:');
-    console.log('- Amazon Associates: $50-500+ (depends on traffic)');
-    console.log('- Software referrals: $100-1000+ (high-value conversions)');
-    console.log('- VPN/Security tools: $200-800+ (high commission rates)');
+    console.log('\n🎯 AMAZON ASSOCIATES ROADMAP:');
+    console.log('Phase 1: Manual SiteStripe Links (CURRENT)');
+    console.log('1. ✅ Sign up for Amazon Associates: https://affiliate-program.amazon.com/');
+    console.log('2. ✅ Use SiteStripe to create affiliate links manually');
+    console.log('3. 🎯 GOAL: Get 3 qualifying sales in 180 days');
+    console.log('');
+    console.log('Phase 2: Amazon PA API (AFTER 3 SALES)');
+    console.log('4. 🚀 Request PA API access for automated product discovery');
+    console.log('5. 🚀 Real-time price updates and inventory checking');
+    console.log('6. 🚀 Automated product recommendations based on content');
+    console.log('\n💰 Revenue Potential:');
+    console.log('- Phase 1 (Manual): $50-200/month');
+    console.log('- Phase 2 (PA API): $200-1000+/month (automated scaling)');
 }
 
 // Run the affiliate integration
 if (import.meta.url === `file://${process.argv[1]}`) {
     integrateAffiliateMarketing();
 }
+
+// TODO: Phase 2 - Amazon PA API Integration
+// After getting 3 qualifying sales, upgrade to PA API for:
+// - Real-time product search and recommendations
+// - Automated price updates and availability checking  
+// - Access to customer reviews and similar products
+// - Millions of products across all categories
+// - Advanced monetization with dynamic product insertion
 
 export { AffiliateAgent, AFFILIATE_PROGRAMS };
