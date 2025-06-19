@@ -341,6 +341,103 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Illustration Sidebar Styling */
+        .illustration-sidebar {
+            position: sticky;
+            top: 100px;
+            padding: 1rem;
+        }
+
+        .infographic-card, .timeline-card, .illustration-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+
+        .infographic-card h4, .timeline-card h4 {
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+
+        .stat-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        .illustration-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+
+        .illustration-caption {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-left: 2px solid var(--primary-color);
+            padding-left: 1rem;
+            margin-left: 0.5rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            left: -5px;
+        }
+
+        .timeline-year {
+            font-weight: 600;
+            color: var(--primary-color);
+            min-width: 45px;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .timeline-event {
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            flex: 1;
+        }
+
         @media (max-width: 768px) {
             .hero-title { font-size: 2rem; }
             .share-buttons { flex-direction: column; }
@@ -392,9 +489,9 @@
         
 
         <!-- Article Content -->
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-7">
                     <div class="article-content">
                         
                         <!-- Lead Paragraph -->
@@ -637,8 +734,69 @@ The companies that succeed in this environment will be those that can balance th
                     </div>
                 </div>
 
-                <!-- Sidebar -->
-                <div class="col-lg-4">
+                <!-- Illustration Sidebar -->
+                <div class="col-lg-3 d-none d-lg-block">
+                    <div class="illustration-sidebar">
+                        <!-- Key Stats Infographic -->
+                        <div class="infographic-card">
+                            <h4><i class="bi bi-graph-up"></i> Infrastructure Crisis by Numbers</h4>
+                            <div class="stat-item">
+                                <div class="stat-number">$700K</div>
+                                <div class="stat-label">OpenAI daily costs</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">$10B</div>
+                                <div class="stat-label">Microsoft investment</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">$31B</div>
+                                <div class="stat-label">Google infrastructure spending</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">700W</div>
+                                <div class="stat-label">H100 GPU power draw</div>
+                            </div>
+                        </div>
+
+                        <!-- Visual Illustration -->
+                        <div class="illustration-card">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=200&fit=crop&auto=format" 
+                                 alt="Data Center Visualization" class="illustration-img">
+                            <p class="illustration-caption">Modern data centers require unprecedented cooling and power infrastructure</p>
+                        </div>
+
+                        <!-- Tech Timeline -->
+                        <div class="timeline-card">
+                            <h4><i class="bi bi-clock-history"></i> AI Infrastructure Timeline</h4>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2019</div>
+                                <div class="timeline-event">Google claims quantum supremacy</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2022</div>
+                                <div class="timeline-event">ChatGPT launches, infrastructure crisis begins</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2023</div>
+                                <div class="timeline-event">$31B+ spent on AI infrastructure</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2024</div>
+                                <div class="timeline-event">GPU shortage reaches critical levels</div>
+                            </div>
+                        </div>
+
+                        <!-- Related Visualization -->
+                        <div class="illustration-card">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop&auto=format" 
+                                 alt="Technology Analytics" class="illustration-img">
+                            <p class="illustration-caption">Real-time monitoring is essential for managing massive AI workloads</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Sidebar -->
+                <div class="col-lg-2">
                     <div class="sidebar">
                         
                         <!-- Newsletter -->

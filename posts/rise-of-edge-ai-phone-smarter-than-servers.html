@@ -252,6 +252,103 @@
             .share-buttons { flex-direction: column; }
             .article-content { padding: 2rem 0; }
         }
+        
+        /* Illustration Sidebar Styling */
+        .illustration-sidebar {
+            position: sticky;
+            top: 100px;
+            padding: 1rem;
+        }
+
+        .infographic-card, .timeline-card, .illustration-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+
+        .infographic-card h4, .timeline-card h4 {
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+
+        .stat-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        .illustration-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+
+        .illustration-caption {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-left: 2px solid var(--primary-color);
+            padding-left: 1rem;
+            margin-left: 0.5rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            left: -5px;
+        }
+
+        .timeline-year {
+            font-weight: 600;
+            color: var(--primary-color);
+            min-width: 45px;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .timeline-event {
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            flex: 1;
+        }
         </style>
         
 </head>
@@ -299,8 +396,8 @@
 
         <!-- Article Content -->
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
+            <div class="row">
+                <div class="col-lg-7">
                     <div class="article-content">
                         
                         <!-- Lead Paragraph -->
@@ -419,8 +516,72 @@
                     </div>
                 </div>
 
-                <!-- Sidebar -->
-                <div class="col-lg-4">
+                
+                <!-- Illustration Sidebar -->
+                <div class="col-lg-3 d-none d-lg-block">
+                    <div class="illustration-sidebar">
+                        <!-- Key Stats Infographic -->
+                        <div class="infographic-card">
+                            <h4><i class="bi bi-graph-up"></i> Edge AI Revolution by Numbers</h4>
+                            
+                            <div class="stat-item">
+                                <div class="stat-number">35T</div>
+                                <div class="stat-label">Apple A17 Pro operations/sec</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">80%</div>
+                                <div class="stat-label">Value at 20% cost</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">90%</div>
+                                <div class="stat-label">Model size reduction possible</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">0ms</div>
+                                <div class="stat-label">Cloud latency (offline)</div>
+                            </div>
+                        </div>
+
+                        <!-- Visual Illustration -->
+                        <div class="illustration-card">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=200&fit=crop&auto=format" 
+                                 alt="Mobile AI Processing" class="illustration-img">
+                            <p class="illustration-caption">Modern smartphones contain powerful AI processors that rival traditional servers</p>
+                        </div>
+
+                        <!-- Tech Timeline -->
+                        <div class="timeline-card">
+                            <h4><i class="bi bi-clock-history"></i> Technology Timeline</h4>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-year">2020</div>
+                                <div class="timeline-event">First neural processing units in phones</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2022</div>
+                                <div class="timeline-event">Apple introduces A16 Neural Engine</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2023</div>
+                                <div class="timeline-event">Edge AI becomes mainstream</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2024</div>
+                                <div class="timeline-event">Phones rival server performance</div>
+                            </div>
+                        </div>
+
+                        <!-- Related Visualization -->
+                        <div class="illustration-card">
+                            <img src="https://images.unsplash.com/photo-1556656793-08538906a9f8?w=300&h=200&fit=crop&auto=format" 
+                                 alt="Edge Computing Network" class="illustration-img">
+                            <p class="illustration-caption">Edge AI reduces latency by processing data locally on devices</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Sidebar -->
+                <div class="col-lg-2"><!-- Main Sidebar -->
                     <div class="sidebar">
                         
                         <!-- Newsletter -->
