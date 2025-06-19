@@ -35,15 +35,15 @@ const AFFILIATE_PROGRAMS = {
     hardware: {
         // Computing Hardware
         gpus: [
-            { name: 'NVIDIA RTX 4090', amazon: 'B0BH8XD8PF', price: '$1600', image: 'https://m.media-amazon.com/images/I/81O+K+xGPkL._AC_SL1500_.jpg', context: ['GPU', 'AI training', 'gaming'] },
-            { name: 'AMD RX 7900 XTX', amazon: 'B0BN2VQSG2', price: '$900', image: 'https://m.media-amazon.com/images/I/71lf1HGgG4L._AC_SL1500_.jpg', context: ['GPU', 'gaming', 'compute'] }
+            { name: 'NVIDIA RTX 4090', amazon: 'B0BGQ5GNX1', price: '$1600', image: 'https://m.media-amazon.com/images/I/81jbGl7KBSL._AC_SL1500_.jpg', context: ['GPU', 'AI training', 'gaming'] },
+            { name: 'AMD RX 7900 XTX', amazon: 'B0BN92MFKD', price: '$900', image: 'https://m.media-amazon.com/images/I/81BLrMMLIlL._AC_SL1500_.jpg', context: ['GPU', 'gaming', 'compute'] }
         ],
         
         // Books
         books: [
-            { name: 'Hands-On Machine Learning', amazon: 'B07XGF2G87', image: 'https://m.media-amazon.com/images/I/51aqYc1QyrL._SX379_BO1,204,203,200_.jpg', context: ['AI', 'machine learning', 'python'] },
-            { name: 'Cybersecurity Handbook', amazon: 'B08P3QY8Q1', image: 'https://m.media-amazon.com/images/I/51XvGznEYnL._SX331_BO1,204,203,200_.jpg', context: ['cybersecurity', 'security', 'hacking'] },
-            { name: 'Quantum Computing Guide', amazon: 'B09B7WG2K3', image: 'https://m.media-amazon.com/images/I/51Z6-8vP9ML._SX334_BO1,204,203,200_.jpg', context: ['quantum', 'computing', 'physics'] }
+            { name: 'Hands-On Machine Learning', amazon: '1492032646', image: 'https://m.media-amazon.com/images/I/51aqYc1QyrL._SX379_BO1,204,203,200_.jpg', context: ['AI', 'machine learning', 'python'] },
+            { name: 'The Cybersecurity Playbook', amazon: '1119442713', image: 'https://m.media-amazon.com/images/I/51rKOXG7CzL._SX396_BO1,204,203,200_.jpg', context: ['cybersecurity', 'security', 'hacking'] },
+            { name: 'Programming Quantum Computers', amazon: '1492039683', image: 'https://m.media-amazon.com/images/I/51yX4tGRMaL._SX379_BO1,204,203,200_.jpg', context: ['quantum', 'computing', 'physics'] }
         ],
         
         // Tech Gadgets
