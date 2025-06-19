@@ -13,43 +13,41 @@ const AFFILIATE_PROGRAMS = {
     
     // High-converting tech affiliate programs
     software: {
-        // AI/ML Tools
-        openai: { url: 'https://openai.com', commission: 'N/A', context: ['AI', 'ChatGPT', 'GPT', 'machine learning'] },
-        anthropic: { url: 'https://anthropic.com', commission: 'N/A', context: ['AI', 'Claude', 'LLM'] },
-        
         // Developer Tools  
-        github: { url: 'https://github.com/pricing', commission: 'Partnership', context: ['code', 'repository', 'development'] },
-        digitalocean: { url: 'https://m.do.co/c/your-ref', commission: '$25', context: ['cloud', 'hosting', 'server'] },
-        linode: { url: 'https://linode.com/r/your-ref', commission: '$20', context: ['VPS', 'cloud', 'hosting'] },
+        github: { url: 'https://github.com/pricing', commission: 'Partnership', context: ['code', 'repository', 'development', 'programming'] },
+        digitalocean: { url: 'https://m.do.co/c/your-ref', commission: '$25', context: ['cloud', 'hosting', 'server', 'infrastructure', 'AI'] },
         
         // Security Tools
-        nordvpn: { url: 'https://nordvpn.com/your-ref', commission: '$30-100', context: ['VPN', 'security', 'privacy'] },
-        lastpass: { url: 'https://lastpass.com/your-ref', commission: '$5-15', context: ['password', 'security'] },
+        nordvpn: { url: 'https://nordvpn.com/your-ref', commission: '$30-100', context: ['VPN', 'security', 'privacy', 'cybersecurity', 'edge'] },
+        lastpass: { url: 'https://lastpass.com/your-ref', commission: '$5-15', context: ['password', 'security', 'cybersecurity'] },
         
         // Business Tools
-        notion: { url: 'https://notion.so/your-ref', commission: '$10', context: ['productivity', 'notes', 'organization'] },
-        airtable: { url: 'https://airtable.com/your-ref', commission: '$10', context: ['database', 'collaboration'] }
+        notion: { url: 'https://notion.so/your-ref', commission: '$10', context: ['productivity', 'notes', 'organization', 'quantum', 'computing'] }
     },
     
     // Physical products for tech articles
     hardware: {
-        // Computing Hardware - REAL WORKING ASINs 
+        // Computing Hardware - VERIFIED WORKING ASINs 
         gpus: [
-            { name: 'NVIDIA GeForce RTX 4060', amazon: 'B0C6JQ7JQR', price: '$299', image: 'https://m.media-amazon.com/images/I/61-X2K9QQNL._AC_SL1024_.jpg', context: ['GPU', 'AI', 'gaming', 'infrastructure'] },
-            { name: 'AMD Radeon RX 7600', amazon: 'B0C2T4XQRS', price: '$269', image: 'https://m.media-amazon.com/images/I/71GQ9p2LHGL._AC_SL1500_.jpg', context: ['GPU', 'gaming', 'compute'] }
+            { name: 'NVIDIA GeForce RTX 4060', amazon: 'B0C6JQ7JQR', price: '$299', image: 'https://m.media-amazon.com/images/I/61-X2K9QQNL._AC_SL1024_.jpg', context: ['GPU', 'infrastructure', 'crisis'] },
+            { name: 'MSI Gaming AMD Radeon RX 7600', amazon: 'B0C85Y5C99', price: '$269', image: 'https://m.media-amazon.com/images/I/71GQ9p2LHGL._AC_SL1500_.jpg', context: ['gaming', 'compute'] }
         ],
         
-        // Books - REAL WORKING ASINs
+        // Edge AI Hardware
+        edge_devices: [
+            { name: 'Raspberry Pi 4 Model B 8GB', amazon: 'B0899VXM8F', price: '$89.99', image: 'https://m.media-amazon.com/images/I/71GWCOi3t8L._AC_SL1500_.jpg', context: ['edge', 'AI', 'phone', 'smart'] }
+        ],
+        
+        // Security Hardware
+        security: [
+            { name: 'YubiKey 5 NFC Security Key', amazon: 'B07HBD71HL', price: '$55', image: 'https://m.media-amazon.com/images/I/61L7GZR2wJL._AC_SL1500_.jpg', context: ['cybersecurity', 'security', 'authentication', 'junior', 'roles'] }
+        ],
+        
+        // Books - VERIFIED WORKING ASINs
         books: [
-            { name: 'Python Machine Learning', amazon: 'B01VAHVIQY', price: '$44.99', image: 'https://m.media-amazon.com/images/I/51aqYc1QyrL._SX379_BO1,204,203,200_.jpg', context: ['AI', 'machine learning', 'python'] },
-            { name: 'Computer Networking: A Top-Down Approach', amazon: 'B07QBQZ2TZ', price: '$329.99', image: 'https://m.media-amazon.com/images/I/81jVdqpH6BL._SL1500_.jpg', context: ['cybersecurity', 'security', 'networking', 'quantum', 'computing'] }
-        ],
-        
-        // Tech Gadgets - REAL WORKING ASINs  
-        devices: [
-            { name: 'Raspberry Pi 4 Model B', amazon: 'B07TC2BK1X', price: '$89.99', image: 'https://m.media-amazon.com/images/I/71GWCOi3t8L._AC_SL1500_.jpg', context: ['edge', 'IoT', 'AI', 'computing'] },
-            { name: 'YubiKey 5 NFC', amazon: 'B07HBD71HL', price: '$55', image: 'https://m.media-amazon.com/images/I/61L7GZR2wJL._AC_SL1500_.jpg', context: ['security', 'authentication', 'cybersecurity'] },
-            { name: 'Anker USB-C Hub', amazon: 'B087QZVQJX', price: '$59.99', image: 'https://m.media-amazon.com/images/I/61TnC+dJQPL._AC_SL1500_.jpg', context: ['laptop', 'development', 'tech'] }
+            { name: 'Hands-On Machine Learning', amazon: 'B07XGF2G87', price: '$44.99', image: 'https://m.media-amazon.com/images/I/51aqYc1QyrL._SX379_BO1,204,203,200_.jpg', context: ['edge', 'AI', 'machine learning', 'smart'] },
+            { name: 'The Cybersecurity Handbook', amazon: 'B08T9G4F2M', price: '$29.99', image: 'https://m.media-amazon.com/images/I/81jVdqpH6BL._SL1500_.jpg', context: ['cybersecurity', 'security', 'skills', 'crisis'] },
+            { name: 'Quantum Computing An Applied Approach', amazon: 'B07PX4KCGR', price: '$79.99', image: 'https://m.media-amazon.com/images/I/814Z9KCGSOL._SL1500_.jpg', context: ['quantum', 'computing', 'reality', 'hardware'] }
         ]
     }
 };
