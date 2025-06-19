@@ -35,22 +35,22 @@ const AFFILIATE_PROGRAMS = {
     hardware: {
         // Computing Hardware
         gpus: [
-            { name: 'NVIDIA RTX 4090', amazon: 'B0BH8XD8PF', price: '$1600', context: ['GPU', 'AI training', 'gaming'] },
-            { name: 'AMD RX 7900 XTX', amazon: 'B0BN2VQSG2', price: '$900', context: ['GPU', 'gaming', 'compute'] }
+            { name: 'NVIDIA RTX 4090', amazon: 'B0BH8XD8PF', price: '$1600', image: 'https://m.media-amazon.com/images/I/81O+K+xGPkL._AC_SL1500_.jpg', context: ['GPU', 'AI training', 'gaming'] },
+            { name: 'AMD RX 7900 XTX', amazon: 'B0BN2VQSG2', price: '$900', image: 'https://m.media-amazon.com/images/I/71lf1HGgG4L._AC_SL1500_.jpg', context: ['GPU', 'gaming', 'compute'] }
         ],
         
         // Books
         books: [
-            { name: 'Hands-On Machine Learning', amazon: 'B07XGF2G87', context: ['AI', 'machine learning', 'python'] },
-            { name: 'Cybersecurity Handbook', amazon: 'B08P3QY8Q1', context: ['cybersecurity', 'security', 'hacking'] },
-            { name: 'Quantum Computing Guide', amazon: 'B09B7WG2K3', context: ['quantum', 'computing', 'physics'] }
+            { name: 'Hands-On Machine Learning', amazon: 'B07XGF2G87', image: 'https://m.media-amazon.com/images/I/51aqYc1QyrL._SX379_BO1,204,203,200_.jpg', context: ['AI', 'machine learning', 'python'] },
+            { name: 'Cybersecurity Handbook', amazon: 'B08P3QY8Q1', image: 'https://m.media-amazon.com/images/I/51XvGznEYnL._SX331_BO1,204,203,200_.jpg', context: ['cybersecurity', 'security', 'hacking'] },
+            { name: 'Quantum Computing Guide', amazon: 'B09B7WG2K3', image: 'https://m.media-amazon.com/images/I/51Z6-8vP9ML._SX334_BO1,204,203,200_.jpg', context: ['quantum', 'computing', 'physics'] }
         ],
         
         // Tech Gadgets
         devices: [
-            { name: 'Framework Laptop', amazon: 'B09KMDF9J4', context: ['laptop', 'modular', 'sustainable'] },
-            { name: 'Raspberry Pi 5', amazon: 'B0CLQX3JBV', context: ['raspberry pi', 'IoT', 'edge computing'] },
-            { name: 'YubiKey Security Key', amazon: 'B07BYSB7FK', context: ['2FA', 'security', 'authentication'] }
+            { name: 'Framework Laptop', amazon: 'B09KMDF9J4', image: 'https://m.media-amazon.com/images/I/61wGzZBcbAL._AC_SL1500_.jpg', context: ['laptop', 'modular', 'sustainable'] },
+            { name: 'Raspberry Pi 5', amazon: 'B0CLQX3JBV', image: 'https://m.media-amazon.com/images/I/71WCzK-z-LL._AC_SL1500_.jpg', context: ['raspberry pi', 'IoT', 'edge computing'] },
+            { name: 'YubiKey Security Key', amazon: 'B07BYSB7FK', image: 'https://m.media-amazon.com/images/I/61jIIl2ByqL._AC_SL1500_.jpg', context: ['2FA', 'security', 'authentication'] }
         ]
     }
 };
@@ -143,14 +143,17 @@ class AffiliateAgent {
         return `
         <div class="affiliate-product">
             <div class="product-card">
-                <h4>📦 Recommended: ${product.name}</h4>
-                <div class="product-details">
-                    <span class="price">${product.price || 'Check Price'}</span>
-                    <a href="${product.amazonUrl}" target="_blank" class="btn btn-amazon" rel="nofollow sponsored">
-                        View on Amazon
-                    </a>
+                ${product.image ? `<img src="${product.image}" alt="${product.name}" class="product-image">` : ''}
+                <div class="product-info">
+                    <h4>📦 Recommended: ${product.name}</h4>
+                    <div class="product-details">
+                        <span class="price">${product.price || 'Check Price'}</span>
+                        <a href="${product.amazonUrl}" target="_blank" class="btn btn-amazon" rel="nofollow sponsored">
+                            View on Amazon
+                        </a>
+                    </div>
+                    <small>As an Amazon Associate, we earn from qualifying purchases.</small>
                 </div>
-                <small>As an Amazon Associate, we earn from qualifying purchases.</small>
             </div>
         </div>`;
     }
@@ -217,6 +220,27 @@ class AffiliateAgent {
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.1);
         }
 
+        .product-card {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .product-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            background: white;
+            padding: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
         .product-card h4 {
             color: #92400e;
             margin: 0 0 1rem 0;
@@ -256,6 +280,17 @@ class AffiliateAgent {
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .product-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .product-image {
+                width: 150px;
+                height: 150px;
+                align-self: center;
+            }
+            
             .product-details {
                 flex-direction: column;
                 gap: 1rem;
