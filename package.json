@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node src/main.js",
     "dev": "node --watch src/main.js",
-    "test": "node src/test.js"
+    "test": "node src/test.js",
+    "generate": "node auto-publish.js",
+    "publish": "node generate-content.js"
   },
   "keywords": ["ai", "content", "automation", "trending"],
   "author": "",
