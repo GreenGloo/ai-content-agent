@@ -124,16 +124,22 @@
         }
 
         .content-section {
-            margin: 3rem 0;
+            margin: 4rem 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
         }
 
         .content-section h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 0.5rem;
+            color: white;
+            background: linear-gradient(135deg, var(--primary-color), #5a67d8);
+            margin: 0;
+            padding: 1.5rem 2rem;
+            border: none;
         }
 
         .section-image {
@@ -143,6 +149,46 @@
         .section-content {
             font-size: 1.1rem;
             line-height: 1.8;
+            padding: 2rem;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Add visual callouts for statistics */
+        .stat-highlight {
+            background: linear-gradient(135deg, #e8f4fd, #bee3f8);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .stat-highlight::before {
+            content: '💡';
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* Visual dividers between paragraphs */
+        .visual-break {
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .visual-break::before {
+            content: '';
+            display: inline-block;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), #5a67d8);
+            border-radius: 2px;
         }
 
         .conclusion-section {
@@ -341,11 +387,24 @@
                         
                         <!-- Lead Paragraph -->
                         <div class="lead-paragraph">
-                            When OpenAI's ChatGPT reached 100 million users in just two months, it didn't just break user adoption records—it shattered assumptions about what modern infrastructure could handle<sup>[1]</sup>. Behind the scenes, the company was burning through an estimated $700,000 daily just to keep the service running. This wasn't an anomaly; it was a preview of the infrastructure crisis that's now hitting every company trying to deploy AI at scale.
+                            <p>When OpenAI's ChatGPT reached 100 million users in just two months, it didn't just break user adoption records—it shattered assumptions about what modern infrastructure could handle<sup>[1]</sup>. Behind the scenes, the company was burning through an estimated $700,000 daily just to keep the service running.</p>
 
-The numbers are staggering. Microsoft recently committed $10 billion to OpenAI, with a significant portion earmarked for compute infrastructure<sup>[2]</sup>. Google's parent company Alphabet spent $31 billion on capital expenditures in 2023, largely driven by AI infrastructure needs<sup>[3]</sup>. Amazon Web Services reported that AI workloads now represent their fastest-growing segment, yet many customers still face months-long wait times for high-end GPU instances<sup>[4]</sup>.
+                            <div class="stat-highlight">
+                                💰 <strong>$700,000 daily</strong> - OpenAI's estimated infrastructure costs to run ChatGPT during peak usage
+                            </div>
 
-But here's what most people don't realize: the GPU shortage everyone talks about is just the tip of the iceberg. The real infrastructure crisis runs much deeper, touching everything from data center cooling systems to the global supply chain for specialized networking equipment.
+                            <p>This wasn't an anomaly; it was a preview of the infrastructure crisis that's now hitting every company trying to deploy AI at scale.</p>
+
+                            <div class="visual-break"></div>
+
+                            <div class="stat-highlight">
+                                📊 <strong>The Staggering Numbers:</strong><br>
+                                • Microsoft: $10 billion committed to OpenAI infrastructure<sup>[2]</sup><br>
+                                • Google/Alphabet: $31 billion in 2023 infrastructure spending<sup>[3]</sup><br>
+                                • AWS: AI workloads are fastest-growing segment<sup>[4]</sup>
+                            </div>
+
+                            <p>But here's what most people don't realize: the GPU shortage everyone talks about is just the tip of the iceberg. The real infrastructure crisis runs much deeper, touching everything from data center cooling systems to the global supply chain for specialized networking equipment.</p>
                         </div>
 
                         <!-- Ad Space -->
@@ -361,27 +420,78 @@ But here's what most people don't realize: the GPU shortage everyone talks about
 
                         <!-- Article Sections -->
                         
+            <!-- Section Image -->
+            <div style="text-align: center; margin: 3rem 0;">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop&auto=format" 
+                     alt="Data center servers and networking infrastructure" 
+                     style="width: 100%; max-width: 800px; height: 300px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            </div>
+
             <div class="content-section">
                 <h2>Beyond GPUs: The Forgotten Bottlenecks</h2>
                 
                 <div class="section-content">
-                    While everyone focuses on NVIDIA's H100 chips and their eye-watering $40,000 price tags<sup>[9]</sup>, the real infrastructure challenges are hiding in plain sight. Take Anthropic's experience scaling Claude: they discovered that their biggest bottleneck wasn't compute power—it was memory bandwidth<sup>[5]</sup>. Training large language models requires moving massive amounts of data between memory and processors, and traditional server architectures simply weren't designed for this workload.
+                    <p>While everyone focuses on NVIDIA's H100 chips and their eye-watering $40,000 price tags<sup>[9]</sup>, the real infrastructure challenges are hiding in plain sight.</p>
 
-The networking infrastructure tells a similar story. AI training requires unprecedented levels of communication between servers, often measured in terabytes per second. Companies like Meta have had to completely redesign their data center networking, moving from traditional hierarchical designs to specialized high-bandwidth mesh networks<sup>[6]</sup>. The result? Their AI Research SuperCluster uses custom networking gear that costs more per rack than most companies spend on their entire IT infrastructure.
+                    <div class="stat-highlight">
+                        🧠 <strong>Anthropic's Discovery:</strong> Their biggest bottleneck wasn't compute power—it was memory bandwidth<sup>[5]</sup>
+                    </div>
 
-Storage presents another hidden challenge. Modern AI training generates enormous amounts of checkpointing data—essentially save states that allow training to resume if something goes wrong. A single GPT-4 scale model can generate hundreds of terabytes of checkpoint data. Traditional storage systems buckle under this load, forcing companies to invest in specialized high-performance storage arrays that can cost millions of dollars.
+                    <p>Training large language models requires moving massive amounts of data between memory and processors, and traditional server architectures simply weren't designed for this workload.</p>
+
+                    <div class="visual-break"></div>
+
+                    <h3 style="color: var(--primary-color); margin: 2rem 0 1rem; font-size: 1.3rem;">🌐 The Networking Challenge</h3>
+                    
+                    <p>AI training requires unprecedented levels of communication between servers, often measured in terabytes per second. Companies like Meta have had to completely redesign their data center networking, moving from traditional hierarchical designs to specialized high-bandwidth mesh networks<sup>[6]</sup>.</p>
+
+                    <div class="stat-highlight">
+                        💸 <strong>Meta's AI Research SuperCluster:</strong> Custom networking gear costs more per rack than most companies spend on their entire IT infrastructure
+                    </div>
+
+                    <h3 style="color: var(--primary-color); margin: 2rem 0 1rem; font-size: 1.3rem;">💾 The Storage Problem</h3>
+                    
+                    <p>Modern AI training generates enormous amounts of checkpointing data—essentially save states that allow training to resume if something goes wrong. A single GPT-4 scale model can generate hundreds of terabytes of checkpoint data. Traditional storage systems buckle under this load, forcing companies to invest in specialized high-performance storage arrays that can cost millions of dollars.</p>
                 </div>
+            </div>
+
+            <!-- Power Infrastructure Image -->
+            <div style="text-align: center; margin: 3rem 0;">
+                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=400&fit=crop&auto=format" 
+                     alt="Power grid and electrical infrastructure" 
+                     style="width: 100%; max-width: 800px; height: 300px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
             </div>
             
             <div class="content-section">
                 <h2>The Power Grid Reality Check</h2>
                 
                 <div class="section-content">
-                    Perhaps the most overlooked aspect of the AI infrastructure crisis is power consumption. A single H100 GPU consumes up to 700 watts under full load—roughly equivalent to seven high-end gaming PCs running simultaneously. Scale that to the thousands of GPUs required for training state-of-the-art models, and you're looking at power requirements that rival small cities.
+                    <p>Perhaps the most overlooked aspect of the AI infrastructure crisis is power consumption.</p>
 
-Microsoft's recent disclosure is telling: their carbon emissions increased 29% in 2023, largely due to AI infrastructure expansion<sup>[7]</sup>. The company's data centers now consume more electricity than many small countries, and they're still growing rapidly. Google faces similar challenges, with their AI training workloads consuming an estimated 2.3 terawatt-hours annually—enough to power 200,000 homes for a year<sup>[8]</sup>.
+                    <div class="stat-highlight">
+                        ⚡ <strong>H100 GPU Power Draw:</strong> 700 watts under full load — equivalent to seven high-end gaming PCs running simultaneously
+                    </div>
 
-The power infrastructure challenges extend beyond just consumption. AI workloads create massive heat generation that requires sophisticated cooling systems. Traditional air cooling simply can't handle the thermal loads, forcing companies to invest in liquid cooling systems that can cost hundreds of thousands of dollars per rack. Some companies are experimenting with immersion cooling, literally submerging servers in specialized coolant fluids.
+                    <p>Scale that to the thousands of GPUs required for training state-of-the-art models, and you're looking at power requirements that rival small cities.</p>
+
+                    <div class="visual-break"></div>
+
+                    <h3 style="color: var(--primary-color); margin: 2rem 0 1rem; font-size: 1.3rem;">📊 The Environmental Impact</h3>
+
+                    <div class="stat-highlight">
+                        🌍 <strong>Corporate Carbon Footprints:</strong><br>
+                        • Microsoft: 29% increase in carbon emissions (2023)<sup>[7]</sup><br>
+                        • Google: 2.3 terawatt-hours annually for AI training<sup>[8]</sup><br>
+                        • Equivalent: Enough to power 200,000 homes for a year
+                    </div>
+
+                    <h3 style="color: var(--primary-color); margin: 2rem 0 1rem; font-size: 1.3rem;">🧊 The Cooling Challenge</h3>
+                    
+                    <p>AI workloads create massive heat generation that requires sophisticated cooling systems. Traditional air cooling simply can't handle the thermal loads, forcing companies to invest in liquid cooling systems that can cost hundreds of thousands of dollars per rack.</p>
+
+                    <div class="stat-highlight">
+                        🚰 <strong>Extreme Cooling Solutions:</strong> Some companies are experimenting with immersion cooling, literally submerging servers in specialized coolant fluids
+                    </div>
                 </div>
             </div>
             
