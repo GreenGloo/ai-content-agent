@@ -7,7 +7,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://greengloo.github.io/ai-content-agent/</loc>
+    <loc>https://trendscope.com/</loc>
     <lastmod>2025-06-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -15,13 +15,13 @@
 
   <!-- Articles -->
   <url>
-    <loc>https://greengloo.github.io/ai-content-agent/posts/2025-06-19-ragflow-ultimate-visual-guide.html</loc>
+    <loc>https://trendscope.com/posts/2025-06-19-ragflow-ultimate-visual-guide.html</loc>
     <lastmod>2025-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <news:news>
       <news:publication>
-        <news:name>AI Trend Hub</news:name>
+        <news:name>TrendScope</news:name>
         <news:language>en</news:language>
       </news:publication>
       <news:publication_date>2025-06-19</news:publication_date>
@@ -31,13 +31,13 @@
   </url>
 
   <url>
-    <loc>https://greengloo.github.io/ai-content-agent/posts/2025-06-19-spacex-rocket-explodes-in-starbase-texas.html</loc>
+    <loc>https://trendscope.com/posts/2025-06-19-spacex-rocket-explodes-in-starbase-texas.html</loc>
     <lastmod>2025-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <news:news>
       <news:publication>
-        <news:name>AI Trend Hub</news:name>
+        <news:name>TrendScope</news:name>
         <news:language>en</news:language>
       </news:publication>
       <news:publication_date>2025-06-19</news:publication_date>
@@ -47,28 +47,28 @@
   </url>
 
   <url>
-    <loc>https://greengloo.github.io/ai-content-agent/posts/2025-06-19-ragflow-revolutionizing-ai-document-understanding.html</loc>
+    <loc>https://trendscope.com/posts/2025-06-19-ragflow-revolutionizing-ai-document-understanding.html</loc>
     <lastmod>2025-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://greengloo.github.io/ai-content-agent/posts/2025-06-19-nocodb-nocodb-open-source-airtable-alternative.html</loc>
+    <loc>https://trendscope.com/posts/2025-06-19-nocodb-nocodb-open-source-airtable-alternative.html</loc>
     <lastmod>2025-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://greengloo.github.io/ai-content-agent/posts/2025-06-19-a-world-war-ii-fighter-pilot-finally-found-his-fal.html</loc>
+    <loc>https://trendscope.com/posts/2025-06-19-a-world-war-ii-fighter-pilot-finally-found-his-fal.html</loc>
     <lastmod>2025-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://greengloo.github.io/ai-content-agent/posts/2025-06-19-made-this-end-table.html</loc>
+    <loc>https://trendscope.com/posts/2025-06-19-made-this-end-table.html</loc>
     <lastmod>2025-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
