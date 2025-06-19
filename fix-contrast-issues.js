@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrendCatcher - Professional Tech Insights & Analysis</title>
-    <meta name="description" content="Professional technology insights, in-depth analysis, and trending topics. Quality tech journalism for developers, entrepreneurs, and technology leaders.">
-    <meta name="keywords" content="technology, tech news, programming, AI, startups, development, innovation">
-    
-    <!-- Modern CSS Framework -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <!-- AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4418865924195738" crossorigin="anonymous"></script>
-    
-    
-    
+import fs from 'fs';
+
+console.log('🔍 Fixing contrast and visibility issues...');
+
+const contrastFixCSS = `
     <style>
         /* Professional Magazine Layout - Inspired by TemplateMag */
         :root {
@@ -488,247 +474,21 @@
                 flex-direction: column !important;
             }
         }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                TrendCatcher
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#articles">Articles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#newsletter">Newsletter</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    </style>`;
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Professional Tech Insights</h1>
-                <p class="hero-subtitle">
-                    In-depth analysis, thoughtful commentary, and professional insights 
-                    on the technologies shaping our world. Quality over quantity.
-                </p>
-                <a href="#articles" class="cta-button">
-                    <i class="bi bi-book-open"></i>
-                    Read Our Analysis
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="main-content" id="articles">
-        <div class="container">
-            <h2 class="section-title">Featured Analysis</h2>
-            <p class="section-subtitle">
-                Deep-dive articles written by experienced technology professionals
-            </p>
-
-            <!-- Ad Space -->
-            <div class="ad-container">
-                <div class="ad-label">Advertisement</div>
-                <ins class="adsbygoogle" 
-                     style="display:block" 
-                     data-ad-client="ca-pub-4418865924195738" 
-                     data-ad-slot="1234567890" 
-                     data-ad-format="auto"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-8">
-                    <!-- Featured Article -->
-                    <article class="featured-article">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=300&fit=crop&auto=format" 
-                             alt="AI Infrastructure and GPU Technology" 
-                             class="featured-image">
-                        <div class="featured-content">
-                            <h2 class="featured-title">
-                                <a href="posts/ai-infrastructure-crisis-gpu-shortage.html">
-                                    The Hidden Infrastructure Crisis Behind AI's Explosive Growth
-                                </a>
-                            </h2>
-                            <div class="article-meta">
-                                <span><i class="bi bi-calendar3"></i> Today</span>
-                                <span><i class="bi bi-clock"></i> 7 min read</span>
-                                <span><i class="bi bi-person"></i> TrendCatcher Editorial Team</span>
-                            </div>
-                            <p class="article-excerpt">
-                                As AI adoption accelerates, companies face mounting infrastructure challenges beyond GPU shortages. 
-                                From power grid limitations to specialized talent shortages, we explore the hidden costs and bottlenecks 
-                                that are reshaping the entire technology industry.
-                            </p>
-                            <div class="tags">
-                                <span class="tag">AI Infrastructure</span>
-                                <span class="tag">Cloud Computing</span>
-                                <span class="tag">GPU Shortage</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Additional Articles Grid -->
-                    <div class="row mt-5">
-                        <div class="col-md-4 mb-4">
-                            <article class="card h-100 border-0 shadow-sm">
-                                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=200&fit=crop&auto=format" 
-                                     class="card-img-top" alt="Edge AI and Mobile Technology">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <a href="posts/rise-of-edge-ai-phone-smarter-than-servers.html" class="text-decoration-none">
-                                            The Rise of Edge AI: Why Your Phone Will Soon Be Smarter Than Most Servers
-                                        </a>
-                                    </h5>
-                                    <p class="card-text text-muted small">
-                                        Edge AI is revolutionizing how we process data, bringing powerful AI capabilities directly to your devices.
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">6 min read</small>
-                                        <span class="badge bg-primary">AI</span>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        
-                        <div class="col-md-4 mb-4">
-                            <article class="card h-100 border-0 shadow-sm">
-                                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=200&fit=crop&auto=format" 
-                                     class="card-img-top" alt="Quantum Computing Technology">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <a href="posts/quantum-computing-reality-check-hype-vs-hardware.html" class="text-decoration-none">
-                                            Quantum Computing's Reality Check: Why the Hype Doesn't Match the Hardware
-                                        </a>
-                                    </h5>
-                                    <p class="card-text text-muted small">
-                                        Quantum computing promises to revolutionize technology, but the reality is more complex than the marketing suggests.
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">7 min read</small>
-                                        <span class="badge bg-success">CLOUD</span>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        
-                        <div class="col-md-4 mb-4">
-                            <article class="card h-100 border-0 shadow-sm">
-                                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=200&fit=crop&auto=format" 
-                                     class="card-img-top" alt="Cybersecurity and Digital Protection">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <a href="posts/cybersecurity-skills-crisis-200k-junior-roles.html" class="text-decoration-none">
-                                            The Cybersecurity Skills Crisis: Why Companies Are Paying $200K+ for Junior Roles
-                                        </a>
-                                    </h5>
-                                    <p class="card-text text-muted small">
-                                        The cybersecurity talent shortage has reached crisis levels, with companies offering unprecedented salaries.
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">8 min read</small>
-                                        <span class="badge bg-danger">SECURITY</span>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sidebar -->
-                <div class="col-lg-4">
-                    <!-- Newsletter Signup -->
-                    <div class="newsletter">
-                        <h3>Stay Informed</h3>
-                        <p>Get notified when we publish new professional analysis and insights.</p>
-                        <form class="newsletter-form">
-                            <input type="email" placeholder="your@email.com" required>
-                            <button type="submit">Subscribe</button>
-                        </form>
-                        <small style="opacity: 0.8; margin-top: 1rem; display: block;">
-                            Quality over quantity. No spam, ever.
-                        </small>
-                    </div>
-
-                    <!-- Ad Space -->
-                    <div class="ad-container">
-                        <div class="ad-label">Advertisement</div>
-                        <ins class="adsbygoogle" 
-                             style="display:block" 
-                             data-ad-client="ca-pub-4418865924195738" 
-                             data-ad-slot="9876543210" 
-                             data-ad-format="auto"></ins>
-                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                    </div>
-
-                    <!-- About -->
-                    <div class="about-section">
-                        <h4 >About TrendCatcher</h4>
-                        <p >
-                            Professional technology analysis for developers, entrepreneurs, and industry leaders. 
-                            We focus on depth over breadth, quality over quantity.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Newsletter Section -->
-    <section id="newsletter" style="background: var(--gray-50); padding: 4rem 0;">
-        <div class="container text-center">
-            <h2 style="font-family: var(--font-serif); margin-bottom: 1rem;">Join Our Community</h2>
-            <p style="color: var(--gray-600); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Be the first to receive our professional technology analysis. We're building something special.
-            </p>
-            <form style="display: flex; justify-content: center; gap: 1rem; max-width: 500px; margin: 0 auto;">
-                <input type="email" placeholder="Enter your email" 
-                       style="flex: 1; padding: 0.875rem 1rem; border: 1px solid var(--gray-300); border-radius: 0.5rem; font-size: 1rem;">
-                <button type="submit" class="cta-button">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>TrendCatcher</h5>
-                    <p>Professional technology insights and analysis.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p>&copy; 2025 TrendCatcher. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+function fixLandingPageContrast() {
+    console.log('📝 Reading current landing page...');
     
-    <!-- Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
-</body>
-</html>
+    let content = fs.readFileSync('./index.html', 'utf8');
+    
+    // Replace the entire style section with contrast-fixed CSS
+    content = content.replace(
+        /<style>[\s\S]*?<\/style>/,
+        contrastFixCSS
+    );
+    
+    fs.writeFileSync('./index.html', content);
+    console.log('✅ Landing page contrast issues fixed!');
+}
+
+fixLandingPageContrast();
