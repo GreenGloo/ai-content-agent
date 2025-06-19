@@ -4,6 +4,6 @@ published: false
 tags: trending, reddit
 ---
 
-I'll help you create and publish this touching WWII story using the available tools. Let's break this down into steps:
+I'll help you create and publish this touching historical article. Let's break this down into steps using our available tools.
 
-1. First, let's check trending topics related to WWII, military reunions, and historical findings to identify relevant angles and keywords:
+1. First, let's check if this topic is trending and gather additional context:
