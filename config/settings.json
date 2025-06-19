@@ -1,0 +1,18 @@
+{
+    "content": {
+        "minWordCount": 1200,
+        "maxWordCount": 2000,
+        "includeImages": false,
+        "seoOptimized": true
+    },
+    "publishing": {
+        "platforms": ["static-site", "devto", "github-pages"],
+        "scheduleDelay": 30000,
+        "maxPostsPerCycle": 3
+    },
+    "scraping": {
+        "sources": ["reddit", "hackernews", "devto", "github"],
+        "maxTrendsPerSource": 10,
+        "filterKeywords": ["crypto", "AI", "tech", "business"]
+    }
+}
