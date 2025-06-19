@@ -322,11 +322,22 @@
 
         .ad-container {
             background: var(--light-gray);
-            border: 2px dashed var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
+            border: 1px dashed var(--border-color);
+            border-radius: 6px;
+            padding: 0.75rem;
             text-align: center;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
+            max-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+        }
+
+        .ad-container .ad-label {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            margin-bottom: 0.5rem;
         }
 
         @media (max-width: 768px) {
@@ -408,14 +419,8 @@
                         </div>
 
                         <!-- Ad Space -->
-                        <div class="ad-container my-5">
-                            <div class="text-center text-muted mb-2">Advertisement</div>
-                            <ins class="adsbygoogle" 
-                                 style="display:block" 
-                                 data-ad-client="ca-pub-4418865924195738" 
-                                 data-ad-slot="1234567890" 
-                                 data-ad-format="auto"></ins>
-                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                        <div class="ad-container">
+                            <div class="ad-label">Advertisement</div>
                         </div>
 
                         <!-- Article Sections -->
@@ -624,13 +629,8 @@ The companies that succeed in this environment will be those that can balance th
                         </div>
 
                         <!-- Final Ad -->
-                        <div class="ad-container my-5">
-                            <ins class="adsbygoogle" 
-                                 style="display:block" 
-                                 data-ad-client="ca-pub-4418865924195738" 
-                                 data-ad-slot="9876543210" 
-                                 data-ad-format="auto"></ins>
-                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                        <div class="ad-container">
+                            <div class="ad-label">Advertisement</div>
                         </div>
 
                     </div>
@@ -671,12 +671,7 @@ The companies that succeed in this environment will be those that can balance th
 
                         <!-- Sidebar Ad -->
                         <div class="ad-container">
-                            <ins class="adsbygoogle" 
-                                 style="display:block" 
-                                 data-ad-client="ca-pub-4418865924195738" 
-                                 data-ad-slot="5555555555" 
-                                 data-ad-format="auto"></ins>
-                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                            <div class="ad-label">Advertisement</div>
                         </div>
 
                     </div>
