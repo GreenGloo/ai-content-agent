@@ -61,15 +61,16 @@ class AffiliateAgent {
         this.recommendations = [];
     }
 
-    // Analyze article content and find relevant products
+    // Analyze article content and find relevant products (strategic, not overwhelming)
     analyzeContent(content, title) {
         const recommendations = [];
         const text = (content + ' ' + title).toLowerCase();
         
-        // Check for software/service matches
+        // Limit to 2-3 most relevant software recommendations per article
+        const softwareMatches = [];
         for (const [key, service] of Object.entries(AFFILIATE_PROGRAMS.software)) {
             if (service.context.some(keyword => text.includes(keyword.toLowerCase()))) {
-                recommendations.push({
+                softwareMatches.push({
                     type: 'software',
                     name: key,
                     ...service,
@@ -77,13 +78,16 @@ class AffiliateAgent {
                 });
             }
         }
+        // Take top 2 software recommendations
+        recommendations.push(...softwareMatches.slice(0, 2));
         
-        // Check for hardware matches
+        // Limit to 2-3 most relevant hardware products per article
+        const hardwareMatches = [];
         for (const category of Object.values(AFFILIATE_PROGRAMS.hardware)) {
             if (Array.isArray(category)) {
                 for (const product of category) {
                     if (product.context.some(keyword => text.includes(keyword.toLowerCase()))) {
-                        recommendations.push({
+                        hardwareMatches.push({
                             type: 'hardware',
                             ...product,
                             amazonUrl: `https://amazon.com/dp/${product.amazon}?tag=${AFFILIATE_PROGRAMS.amazon.tag}`,
@@ -93,6 +97,8 @@ class AffiliateAgent {
                 }
             }
         }
+        // Take top 2 hardware recommendations
+        recommendations.push(...hardwareMatches.slice(0, 2));
         
         return recommendations;
     }
