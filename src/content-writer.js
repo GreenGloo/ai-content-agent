@@ -70,14 +70,83 @@ Write the article now:`;
         });
 
         try {
-            return JSON.parse(message.content[0].text);
+            const responseText = message.content[0].text;
+            console.log('Claude response length:', responseText.length);
+            
+            // Try to extract JSON from the response if it's wrapped in text
+            let jsonMatch = responseText.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+                const jsonString = jsonMatch[0];
+                const parsed = JSON.parse(jsonString);
+                
+                // Validate required fields
+                if (!parsed.leadParagraph || !parsed.sections || parsed.sections.length === 0) {
+                    throw new Error('Missing required content structure');
+                }
+                
+                console.log('✅ Successfully parsed structured article');
+                return parsed;
+            } else {
+                throw new Error('No JSON structure found in response');
+            }
         } catch (error) {
-            console.log('Failed to parse JSON, returning raw content');
+            console.log('❌ Failed to parse structured response, creating basic structure from raw content');
+            const rawContent = message.content[0].text;
+            
+            // Create a basic structure from raw content
+            const lines = rawContent.split('\n').filter(line => line.trim());
+            const headline = lines[0] || topic.title;
+            
+            // Try to extract sections
+            const sections = [];
+            let currentSection = null;
+            let leadParagraph = '';
+            let conclusion = '';
+            
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+                
+                // Check if this looks like a heading
+                if (line.length < 100 && (line.includes(':') || line.match(/^[A-Z][^.!?]*$/))) {
+                    if (currentSection) {
+                        sections.push(currentSection);
+                    }
+                    currentSection = {
+                        heading: line.replace(':', ''),
+                        content: ''
+                    };
+                } else if (currentSection) {
+                    currentSection.content += line + '\n\n';
+                } else if (!leadParagraph && line.length > 50) {
+                    leadParagraph = line;
+                } else if (i > lines.length - 3) {
+                    conclusion += line + '\n\n';
+                }
+            }
+            
+            if (currentSection) {
+                sections.push(currentSection);
+            }
+            
             return {
-                headline: topic.title,
-                content: message.content[0].text,
-                metaDescription: topic.description?.substring(0, 150) || '',
-                estimatedReadTime: "5 min"
+                headline: headline,
+                metaDescription: leadParagraph.substring(0, 150) || topic.description?.substring(0, 150) || '',
+                leadParagraph: leadParagraph || 'Professional analysis of the latest trends in technology and innovation.',
+                sections: sections.length > 0 ? sections : [
+                    {
+                        heading: "Overview",
+                        content: rawContent.substring(0, 500) + "..."
+                    }
+                ],
+                conclusion: conclusion || 'This development represents a significant advancement in the technology landscape.',
+                suggestedTags: topic.title.toLowerCase().split(' ').slice(0, 5),
+                estimatedReadTime: "5 min",
+                keyPoints: [
+                    "Significant technological advancement",
+                    "Industry implications and impact",
+                    "Future development potential"
+                ]
             };
         }
     }

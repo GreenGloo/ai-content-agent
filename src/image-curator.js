@@ -2,6 +2,7 @@ export class ImageCuratorAgent {
     constructor() {
         this.unsplashBaseUrl = 'https://images.unsplash.com';
         this.imageCache = new Map();
+        this.usedImagesInArticle = new Set(); // Track images used in current article
     }
 
     async findRelevantImage(searchTerm, category = 'technology') {
@@ -73,9 +74,16 @@ export class ImageCuratorAgent {
             selectedCategory = 'business';
         }
 
-        // Get random image from selected category
+        // Get random image from selected category, avoiding duplicates
         const imageIds = curatedImages[selectedCategory] || curatedImages.general;
-        const randomId = imageIds[Math.floor(Math.random() * imageIds.length)];
+        const availableIds = imageIds.filter(id => !this.usedImagesInArticle.has(id));
+        
+        // If all images in category are used, use all images from category
+        const candidateIds = availableIds.length > 0 ? availableIds : imageIds;
+        const randomId = candidateIds[Math.floor(Math.random() * candidateIds.length)];
+        
+        // Mark this image as used for this article
+        this.usedImagesInArticle.add(randomId);
 
         const imageData = {
             url: `${this.unsplashBaseUrl}/${randomId}?w=800&h=400&fit=crop&auto=format`,
@@ -90,6 +98,24 @@ export class ImageCuratorAgent {
     }
 
     generateAltText(searchTerm, category) {
+        const searchLower = searchTerm.toLowerCase();
+        
+        // Create more specific alt text based on search term
+        if (searchLower.includes('framework') || searchLower.includes('library')) {
+            return 'Software Development Framework and Programming Tools';
+        } else if (searchLower.includes('repository') || searchLower.includes('github')) {
+            return 'Open Source Development and Code Repository';
+        } else if (searchLower.includes('data engineer') || searchLower.includes('database')) {
+            return 'Data Engineering and Database Management';
+        } else if (searchLower.includes('animation') || searchLower.includes('visualization')) {
+            return 'Data Visualization and Animation Technology';
+        } else if (searchLower.includes('chatgpt') || searchLower.includes('llm')) {
+            return 'Large Language Models and AI Development';
+        } else if (searchLower.includes('community') || searchLower.includes('collaboration')) {
+            return 'Tech Community and Open Source Collaboration';
+        }
+        
+        // Fallback to category-based alt text
         const altTexts = {
             'ai': 'Artificial Intelligence and Machine Learning Technology',
             'coding': 'Software Development and Programming',
@@ -113,6 +139,9 @@ export class ImageCuratorAgent {
     }
 
     async getArticleImages(article) {
+        // Reset used images for this article
+        this.usedImagesInArticle.clear();
+        
         // Get multiple images for an article
         const images = [];
         
@@ -120,10 +149,10 @@ export class ImageCuratorAgent {
         const heroImage = await this.getHeroImage({ title: article.headline });
         images.push({ type: 'hero', ...heroImage });
 
-        // Section images based on content
+        // Section images based on content - ensure unique images
         for (let i = 0; i < Math.min(3, article.sections?.length || 0); i++) {
             const section = article.sections[i];
-            const sectionImage = await this.findRelevantImage(section.heading);
+            const sectionImage = await this.findRelevantImage(section.heading + ` section ${i}`);
             images.push({ type: 'section', sectionIndex: i, ...sectionImage });
         }
 
