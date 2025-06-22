@@ -127,7 +127,7 @@ class AmazonLinkValidator {
             const content = fs.readFileSync(filePath, 'utf8');
             
             // Find all Amazon affiliate links
-            const amazonLinkRegex = /https:\/\/amazon\.com\/dp\/[A-Z0-9]{10}\?tag=[^"'\s>]+/g;
+            const amazonLinkRegex = /https:\/\/www\.amazon\.com\/dp\/[A-Z0-9]{10}\?tag=[^"'\s>]+/g;
             const links = content.match(amazonLinkRegex) || [];
             
             if (links.length === 0) {
