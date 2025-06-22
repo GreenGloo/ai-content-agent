@@ -408,6 +408,99 @@
             color: #ffffff !important;
         }
 
+        /* Newsletter Incentive */
+        .newsletter-incentive {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-incentive::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .incentive-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter-incentive h4 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter-incentive p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+        }
+
+        .incentive-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .incentive-form input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .incentive-form button {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .incentive-form button:hover {
+            background: #c53030;
+            transform: translateY(-2px);
+        }
+
+        .newsletter-incentive small {
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 2;
+        }
+
         /* Ad Container */
         .ad-container {
             background: linear-gradient(135deg, #fff5f5, #fed7d7);
@@ -433,6 +526,17 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 700;
+        }
+
+        /* Responsive Newsletter */
+        @media (max-width: 768px) {
+            .incentive-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-incentive {
+                padding: 2rem 1.5rem;
+            }
         }
 
         /* About Section - FIXED CONTRAST */
@@ -540,6 +644,18 @@
             <p class="section-subtitle">
                 Deep-dive articles written by experienced technology professionals
             </p>
+
+            <!-- Newsletter Incentive -->
+            <div class="newsletter-incentive">
+                <div class="incentive-icon">🎯</div>
+                <h4>Get Tech Insights First</h4>
+                <p>Join 500+ professionals getting exclusive tech analysis delivered weekly</p>
+                <form class="incentive-form" onsubmit="trackSignup(event)">
+                    <input type="email" placeholder="your@email.com" required>
+                    <button type="submit">Get Free Insights</button>
+                </form>
+                <small>✅ No spam, unsubscribe anytime</small>
+            </div>
 
             <!-- Ad Space -->
             <div class="ad-container">
@@ -738,6 +854,55 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-9BF2LB0WZX');
+        
+        // Track newsletter signups
+        function trackSignup(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            
+            // Track the conversion
+            gtag('event', 'generate_lead', {
+                'event_category': 'engagement',
+                'event_label': 'newsletter_signup',
+                'value': 1
+            });
+            
+            // Show success message
+            alert('Thanks! We\'ll send you exclusive tech insights weekly.');
+            event.target.reset();
+        }
+        
+        // Track reading time
+        let startTime = Date.now();
+        let maxScroll = 0;
+        
+        window.addEventListener('scroll', function() {
+            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            if (scrollPercent > maxScroll) {
+                maxScroll = scrollPercent;
+                
+                // Track milestone scrolling
+                if (maxScroll >= 25 && maxScroll < 50) {
+                    gtag('event', 'scroll', {'event_category': 'engagement', 'event_label': '25_percent'});
+                } else if (maxScroll >= 50 && maxScroll < 75) {
+                    gtag('event', 'scroll', {'event_category': 'engagement', 'event_label': '50_percent'});
+                } else if (maxScroll >= 75) {
+                    gtag('event', 'scroll', {'event_category': 'engagement', 'event_label': '75_percent'});
+                }
+            }
+        });
+        
+        // Track time on page
+        window.addEventListener('beforeunload', function() {
+            const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+            if (timeOnPage > 30) {
+                gtag('event', 'page_view_duration', {
+                    'event_category': 'engagement',
+                    'event_label': timeOnPage > 120 ? 'long_read' : 'medium_read',
+                    'value': timeOnPage
+                });
+            }
+        });
     </script>
 </body>
 </html>
