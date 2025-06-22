@@ -408,97 +408,43 @@
             color: #ffffff !important;
         }
 
-        /* Newsletter Incentive */
-        .newsletter-incentive {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border-radius: 15px;
-            padding: 2.5rem;
+        /* Reading Stats */
+        .reading-stats {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--card-shadow);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
             text-align: center;
-            margin: 3rem 0;
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
-            position: relative;
-            overflow: hidden;
         }
 
-        .newsletter-incentive::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
-            animation: float 20s linear infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        .incentive-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .newsletter-incentive h4 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .newsletter-incentive p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            position: relative;
-            z-index: 2;
-        }
-
-        .incentive-form {
+        .stat-item {
             display: flex;
-            gap: 1rem;
-            max-width: 400px;
-            margin: 0 auto 1rem;
-            position: relative;
-            z-index: 2;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .incentive-form input {
-            flex: 1;
-            padding: 1rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            color: var(--text-color);
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-family: 'Georgia', serif;
         }
 
-        .incentive-form button {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .incentive-form button:hover {
-            background: #c53030;
-            transform: translateY(-2px);
-        }
-
-        .newsletter-incentive small {
-            color: rgba(255, 255, 255, 0.8);
-            position: relative;
-            z-index: 2;
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
         }
 
         /* Ad Container */
@@ -645,16 +591,22 @@
                 Deep-dive articles written by experienced technology professionals
             </p>
 
-            <!-- Newsletter Incentive -->
-            <div class="newsletter-incentive">
-                <div class="incentive-icon">🎯</div>
-                <h4>Get Tech Insights First</h4>
-                <p>Join 500+ professionals getting exclusive tech analysis delivered weekly</p>
-                <form class="incentive-form" onsubmit="trackSignup(event)">
-                    <input type="email" placeholder="your@email.com" required>
-                    <button type="submit">Get Free Insights</button>
-                </form>
-                <small>✅ No spam, unsubscribe anytime</small>
+            <!-- Reading Progress Indicator -->
+            <div class="reading-stats">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Articles</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">7m</span>
+                        <span class="stat-label">Avg Read</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Daily</span>
+                        <span class="stat-label">Updates</span>
+                    </div>
+                </div>
             </div>
 
             <!-- Ad Space -->

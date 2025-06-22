@@ -236,10 +236,64 @@
             margin: 2rem 0;
         }
 
+        .engagement-section {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .engagement-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .engagement-section p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .feedback-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .feedback-btn {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feedback-btn:hover {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .feedback-btn.clicked {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+
         @media (max-width: 768px) {
             .hero-title { font-size: 2rem; }
             .share-buttons { flex-direction: column; }
             .article-content { padding: 2rem 0; }
+            .feedback-buttons { flex-direction: column; align-items: center; }
         }
         </style>
         
@@ -392,6 +446,23 @@ Dr. Raschka notes: 'The goal isn't to compete with commercial models, but to pro
                         </div>
                         
 
+                        <!-- Engagement Section -->
+                        <div class="engagement-section">
+                            <h4>What did you think of this article?</h4>
+                            <p>Your feedback helps us create better content for the tech community.</p>
+                            <div class="feedback-buttons">
+                                <button class="feedback-btn" onclick="trackFeedback('helpful')" data-feedback="helpful">
+                                    <i class="bi bi-hand-thumbs-up"></i> Helpful
+                                </button>
+                                <button class="feedback-btn" onclick="trackFeedback('interesting')" data-feedback="interesting">
+                                    <i class="bi bi-lightbulb"></i> Interesting
+                                </button>
+                                <button class="feedback-btn" onclick="trackFeedback('share')" data-feedback="share">
+                                    <i class="bi bi-share"></i> Worth Sharing
+                                </button>
+                            </div>
+                        </div>
+
                         <!-- Social Sharing -->
                         <div class="social-sharing">
                             <h4>Share This Article</h4>
@@ -493,16 +564,70 @@ Dr. Raschka notes: 'The goal isn't to compete with commercial models, but to pro
             const text = encodeURIComponent('Build Your Own ChatGPT: New Open-Source Project Demystifies Large Language Models');
             const url = encodeURIComponent(window.location.href);
             window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+            
+            // Track social share
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'share', {
+                    'method': 'twitter',
+                    'content_type': 'article',
+                    'item_id': 'chatgpt-opensource'
+                });
+            }
         }
         
         function shareLinkedIn() {
             const url = encodeURIComponent(window.location.href);
             window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+            
+            // Track social share
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'share', {
+                    'method': 'linkedin',
+                    'content_type': 'article',
+                    'item_id': 'chatgpt-opensource'
+                });
+            }
         }
         
         function shareFacebook() {
             const url = encodeURIComponent(window.location.href);
             window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+            
+            // Track social share
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'share', {
+                    'method': 'facebook',
+                    'content_type': 'article',
+                    'item_id': 'chatgpt-opensource'
+                });
+            }
+        }
+        
+        function trackFeedback(type) {
+            const button = document.querySelector(`[data-feedback="${type}"]`);
+            button.classList.add('clicked');
+            button.textContent = button.textContent.replace(/^/, '✓ ');
+            
+            // Track feedback event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'feedback', {
+                    'event_category': 'engagement',
+                    'event_label': type,
+                    'value': 1
+                });
+            }
+            
+            // Disable all buttons after feedback
+            document.querySelectorAll('.feedback-btn').forEach(btn => {
+                btn.disabled = true;
+                btn.style.opacity = '0.7';
+            });
+            
+            // Show thank you message
+            setTimeout(() => {
+                const section = document.querySelector('.engagement-section');
+                section.innerHTML = '<h4>Thank you for your feedback!</h4><p>Your input helps us create better content.</p>';
+            }, 500);
         }
     </script>
     
