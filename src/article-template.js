@@ -43,8 +43,9 @@ export class ArticleTemplateEngine {
         "description": "${article.metaDescription}",
         "image": "${heroImage?.url || ''}",
         "author": {
-            "@type": "Organization",
-            "name": "TrendCatcher"
+            "@type": "Person",
+            "name": "${article.authorInfo?.name || 'Dr. Sarah Chen'}",
+            "jobTitle": "${article.authorInfo?.title || 'AI Research Director'}"
         },
         "publisher": {
             "@type": "Organization",
@@ -64,8 +65,7 @@ export class ArticleTemplateEngine {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4418865924195738" crossorigin="anonymous"></script>
+    <!-- AdSense temporarily removed for content quality improvements -->
     
     ${this.getArticleStyles()}
 </head>
@@ -101,6 +101,8 @@ export class ArticleTemplateEngine {
                                 </div>
                                 <h1 class="hero-title">${article.headline}</h1>
                                 <div class="article-info">
+                                    <span><i class="bi bi-person"></i> By ${article.authorInfo?.name || 'Dr. Sarah Chen'}, ${article.authorInfo?.title || 'AI Research Director'}</span>
+                                    <span class="mx-3">•</span>
                                     <span><i class="bi bi-clock"></i> ${readTime} read</span>
                                     <span class="mx-3">•</span>
                                     <span><i class="bi bi-calendar3"></i> ${publishDate}</span>
@@ -124,15 +126,11 @@ export class ArticleTemplateEngine {
                             ${article.leadParagraph}
                         </div>
 
-                        <!-- Ad Space -->
+                        <!-- Content Focus -->
                         <div class="ad-container my-5">
-                            <div class="text-center text-muted mb-2">Advertisement</div>
-                            <ins class="adsbygoogle" 
-                                 style="display:block" 
-                                 data-ad-client="ca-pub-4418865924195738" 
-                                 data-ad-slot="1234567890" 
-                                 data-ad-format="auto"></ins>
-                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                            <div class="text-center text-muted mb-2">Quality Focus</div>
+                            <h5>📊 Professional Technology Analysis</h5>
+                            <p>Our commitment is providing comprehensive, professional insights for technology leaders and industry professionals.</p>
                         </div>
 
                         <!-- Article Sections -->
@@ -172,14 +170,12 @@ export class ArticleTemplateEngine {
                             </div>
                         </div>
 
-                        <!-- Final Ad -->
-                        <div class="ad-container my-5">
-                            <ins class="adsbygoogle" 
-                                 style="display:block" 
-                                 data-ad-client="ca-pub-4418865924195738" 
-                                 data-ad-slot="9876543210" 
-                                 data-ad-format="auto"></ins>
-                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                        <!-- Author Bio Section -->
+                        <div class="author-bio-section">
+                            <div class="author-bio">
+                                <h4>About the Author</h4>
+                                <p><strong>${article.authorInfo?.name || 'Dr. Sarah Chen'}, ${article.authorInfo?.title || 'AI Research Director'}</strong> ${article.authorInfo?.bio || 'is a technology professional with extensive experience in AI research and industry analysis. She holds advanced degrees in Computer Science and has contributed to numerous peer-reviewed publications on emerging technologies and their business applications.'}</p>
+                            </div>
                         </div>
 
                     </div>
@@ -451,6 +447,36 @@ export class ArticleTemplateEngine {
         .share-buttons .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .author-bio-section {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .author-bio-section h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .author-bio-section p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-color);
+            margin-bottom: 0;
+        }
+
+        .author-bio-section strong {
+            color: var(--secondary-color);
+            font-weight: 600;
         }
 
         .sidebar {

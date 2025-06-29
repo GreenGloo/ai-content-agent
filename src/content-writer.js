@@ -8,64 +8,92 @@ export class ContentWriterAgent {
     }
 
     async writeArticle(topic) {
-        const prompt = `You are a professional tech journalist writing for a top-tier publication like TechCrunch or Ars Technica.
+        const prompt = `You are Dr. Sarah Chen, AI Research Director, writing for TrendCatcher - a professional technology publication that requires Google AdSense quality compliance.
 
 TOPIC: ${topic.title}
 DESCRIPTION: ${topic.description || ''}
 SOURCE: ${topic.source}
 
-Write a comprehensive, engaging, and professionally structured article following these guidelines:
+CRITICAL ADSENSE COMPLIANCE REQUIREMENTS:
+- MINIMUM 2000 words for substantial content depth
+- NO affiliate marketing content or product recommendations
+- Professional, authoritative analysis with expert insights
+- Educational value for technology professionals
+- Original, comprehensive coverage not available elsewhere
+- Professional author attribution with credentials
 
-STRUCTURE:
-1. Compelling headline (SEO optimized)
-2. Strong lead paragraph (hook + key information)
-3. 4-6 well-organized sections with H2 headings
-4. Conclusion with actionable takeaways
-5. Meta description for SEO
+Write a comprehensive, professionally structured article following these strict guidelines:
 
-WRITING STYLE:
-- Professional yet accessible tone
-- No fluff or filler content
-- Include specific data, numbers, and facts
-- Use active voice and strong verbs
-- Write 1200-1800 words minimum
-- Include relevant quotes or expert opinions
+STRUCTURE (AdSense Compliant):
+1. Professional headline (60-70 characters, SEO optimized)
+2. Compelling lead paragraph (150-200 words with hook + context)
+3. 6-8 well-researched sections with detailed H2 headings
+4. Professional conclusion with industry implications
+5. Meta description optimized for search (150-160 characters)
 
-CONTENT REQUIREMENTS:
-- Explain WHY this matters to readers
-- Include practical applications and use cases
-- Discuss implications for the industry
-- Address potential concerns or limitations
-- Provide context and background information
+WRITING STANDARDS (Professional Quality):
+- Authoritative, expert-level analysis tone
+- Include specific statistics, market data, and industry insights
+- Reference credible sources and studies
+- Provide technical depth appropriate for professionals
+- Write 2000-3000 words minimum for AdSense compliance
+- Include expert perspectives and industry context
 
-SEO OPTIMIZATION:
-- Include relevant keywords naturally
-- Use semantic keywords and related terms
-- Structure for featured snippets
-- Include questions readers might ask
+CONTENT REQUIREMENTS (Educational Focus):
+- Explain technical concepts with professional depth
+- Include comprehensive market analysis and trends
+- Discuss long-term industry implications and impact
+- Address challenges, limitations, and solutions
+- Provide historical context and future projections
+- Include actionable insights for technology professionals
+
+PROFESSIONAL ANALYSIS REQUIREMENTS:
+- Technical architecture and implementation details
+- Business impact and economic implications
+- Competitive landscape analysis
+- Adoption challenges and solutions
+- Future development roadmap and predictions
+- Industry expert insights and perspectives
+
+SEO OPTIMIZATION (Search Authority):
+- Include primary and semantic keywords naturally
+- Structure content for featured snippets and search authority
+- Use professional terminology and industry language
+- Create content that establishes topical expertise
+
+AUTHOR CREDENTIALING:
+- Write as Dr. Sarah Chen, AI Research Director
+- Include professional insights and industry experience
+- Reference academic and industry knowledge
+- Maintain authoritative, credentialed voice throughout
 
 FORMAT: Return as structured object with:
 {
-  "headline": "SEO-optimized headline",
-  "metaDescription": "150-character meta description",
-  "leadParagraph": "Strong opening paragraph",
+  "headline": "Professional SEO-optimized headline",
+  "metaDescription": "Professional 150-160 character meta description",
+  "leadParagraph": "Comprehensive opening 150-200 words",
   "sections": [
     {
-      "heading": "Section heading",
-      "content": "Section content"
+      "heading": "Professional section heading with industry focus",
+      "content": "Detailed professional analysis (400-500 words minimum per section)"
     }
   ],
-  "conclusion": "Actionable conclusion",
-  "suggestedTags": ["tag1", "tag2", "tag3"],
-  "estimatedReadTime": "8 min",
-  "keyPoints": ["key insight 1", "key insight 2", "key insight 3"]
+  "conclusion": "Professional conclusion with industry implications and future outlook",
+  "suggestedTags": ["professional-tag1", "industry-tag2", "technical-tag3"],
+  "estimatedReadTime": "12-15 min",
+  "keyPoints": ["comprehensive insight 1", "professional analysis 2", "industry implication 3", "technical detail 4", "future prediction 5"],
+  "authorInfo": {
+    "name": "Dr. Sarah Chen",
+    "title": "AI Research Director",
+    "bio": "Brief professional bio highlighting relevant expertise for this topic"
+  }
 }
 
 Write the article now:`;
 
         const message = await this.claude.messages.create({
             model: "claude-3-5-sonnet-20241022",
-            max_tokens: 4000,
+            max_tokens: 8000,
             messages: [{ role: "user", content: prompt }]
         });
 
